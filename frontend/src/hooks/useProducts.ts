@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { Product } from '../definitions/product';
 
-const API_URL = 'http://localhost:3000/products';
+const API_URL = 'https://product-listing-app-ikf1.onrender.com/products';
 
 export interface ProductFilters {
   minPrice?: number;
