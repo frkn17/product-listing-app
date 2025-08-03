@@ -1,16 +1,28 @@
+import React, { useState } from 'react';
 import Header from './components/Header';
 import Carousel from './components/ProductCarousel';
-import { useProducts } from './hooks/useProducts';
+import ProductFilters from './components/ProductFilters'; // This is the component
+import { useProducts, type ProductFilters as FilterType } from './hooks/useProducts'; // Import the type
+
 
 const App: React.FC = () => {
-  const { products, loading, error } = useProducts();
+  // Local state for filters
+  const [filters, setFilters] = useState<FilterType>({});
+  const { products, loading, error } = useProducts(filters);
 
-  if (loading) return <p className="text-center mt-10">Loading...</p>;
-  if (error) return <p className="text-center text-red-500 mt-10">Error: {error}</p>;
+
   return (
     <div className="min-h-screen w-full flex flex-col items-center pt-8 bg-white">
       <Header />
-      <Carousel products={products} />
+      {/* Filters */}
+      <ProductFilters filters={filters} onChange={setFilters} />
+
+      {/* Data state */}
+      {loading && <p className="text-center mt-6">Loading...</p>}
+      {error && <p className="text-center text-red-500 mt-6">Error: {error}</p>}
+
+      {/* Product Carousel */}
+      {!loading && !error && <Carousel products={products} />}
     </div>
   );
 };
