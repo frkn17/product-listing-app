@@ -1,0 +1,131 @@
+@import "tailwindcss";
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/scrollbar";
+
+/* ------------------------- */
+/*        Font Face          */
+/* ------------------------- */
+@font-face {
+  font-family: 'Avenir-Book';
+  src: url('./assets/Fonts/avenir/Avenir-Book.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Montserrat-Medium';
+  src: url('./assets/Fonts/montserat/Montserrat-Medium.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat-Regular';
+  src: url('./assets/Fonts/montserat/Montserrat-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+.productListHeader {
+  font-family: var(--avenir-book);
+  font-size: 45px;
+}
+
+.productColor {
+  font-family: var(--avenir-book);
+  font-size: 15px;
+}
+
+
+.productName {
+  font-family: var(--montserrat-medium-15);
+  font-size: 15px;
+}
+
+.productPrice {
+  font-family: var( --avenir-book);
+  font-size: 15px;
+}
+
+.productStar {
+  font-family: var( --avenir-book);
+  font-size: 14px;
+}
+
+
+:root {
+  --avenir-book: 'Avenir-Book';
+  --montserrat-medium-15: 'Montserrat-Medium';
+  --montserrat-regular-15: 'Montserrat-Regular'
+}
+
+/* ------------------------- */
+/*     Carousel Container    */
+/* ------------------------- */
+.carousel-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;               /* removed side padding */
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ------------------------- */
+/*        Swiper Styles      */
+/* ------------------------- */
+.swiper {
+  padding-bottom: 32px;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  min-width: 0; /* prevent layout breaking */
+}
+
+.swiper-scrollbar {
+  background: #e0e0e0;
+  height: 12px; /* <-- Thicker scrollbar */
+  border-radius: 10px;
+  margin-top: 12px;
+}
+
+.swiper-scrollbar-drag {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Navigation Arrows */
+.swiper-button-prev,
+.swiper-button-next {
+  color: black;
+  font-size: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.swiper-button-disabled {
+  opacity: 0.3;
+}
+
+/* ------------------------- */
+/*        Mobile Styles      */
+/* ------------------------- */
+@media screen and (max-width: 480px) {
+  .carousel-container {
+    padding: 0; /* completely remove side padding */
+  }
+
+  .swiper {
+    padding-bottom: 32px;
+  }
+
+  .swiper-slide {
+    padding: 0 4px;
+  }
+
+}
